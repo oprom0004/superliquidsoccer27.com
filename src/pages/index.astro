@@ -42,12 +42,26 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Super Liquid Soccer 27 | Play Free Unblocked Arcade Soccer Online"
-  description="Play Super Liquid Soccer 27 instantly in full screen! Free unblocked arcade soccer with fast matches, curving shots, updated 2027 national teams, and 2-player mode."
+  title="Super Liquid Soccer | Play Free Unblocked Arcade Soccer Online"
+  description="Play Super Liquid Soccer instantly in your browser! Free unblocked arcade football with ragdoll physics, fluid curving shots, international tournament squads, and 2-player local mode."
   schema={{ ...faqSchema }}
 >
-  <div class="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+  <div class="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
     
+    <!-- Hero H1 Section -->
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0a1d36] border border-[#4de3ff]/30 text-[#4de3ff] text-xs font-mono uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-[#4de3ff] animate-pulse"></span>
+        Official Unblocked Browser Edition
+      </div>
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+        Super Liquid Soccer: Play Unblocked Online
+      </h1>
+      <p class="text-xs sm:text-sm text-[#8fa3c4] max-w-3xl leading-relaxed">
+        Experience the hit physics-driven football arcade game directly in your browser. Control wobbly ragdoll players, master outside-of-boot curving strikes, and lead your squad to tournament glory with zero lag.
+      </p>
+    </div>
+
     <!-- TOP INSTANT PLAY GAME VIEWPORT -->
     <div id="game-arena" class="rounded-3xl bg-[#0a1d36] border border-[#4de3ff]/30 p-2 sm:p-3 shadow-2xl overflow-hidden">
       <!-- Game Action Bar -->
@@ -57,7 +71,7 @@ const faqSchema = {
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4de3ff] opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-[#4de3ff]"></span>
           </span>
-          <span class="text-white font-black text-sm tracking-wide">SUPER LIQUID SOCCER 27</span>
+          <span class="text-white font-black text-sm tracking-wide">SUPER LIQUID SOCCER</span>
           <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-[#ffd166]/15 border border-[#ffd166]/30 text-[#ffd166] text-[10px] font-mono font-bold uppercase">
             Instant Play
           </span>
@@ -95,11 +109,10 @@ const faqSchema = {
       <div id="game-frame-wrapper" class="relative w-full rounded-2xl overflow-hidden bg-[#020611] border border-white/5" style="height: clamp(660px, 86vh, 860px);">
         <iframe
           id="sls-game-iframe"
-          src="https://freetoplayz.github.io/super-liquid-soccer/"
-          title="Super Liquid Soccer 27 Game Viewport"
+          src="/game/index.html"
+          title="Super Liquid Soccer Game Viewport"
           class="w-full h-full border-0 block"
           allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-          referrerpolicy="no-referrer"
           scrolling="no"
           loading="eager"
         ></iframe>

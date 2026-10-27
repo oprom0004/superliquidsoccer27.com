@@ -1,0 +1,19 @@
+{
+  "name": "superliquidsoccer27",
+  "account_id": "890529cf303eac850f070097d3aa2d85",
+  "compatibility_date": "2026-10-20",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "superliquidsoccer27.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.superliquidsoccer27.com",
+      "custom_domain": true
+    }
+  ]
+}

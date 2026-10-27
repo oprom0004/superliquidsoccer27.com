@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you play Super Liquid Soccer 27?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use WASD or the Arrow Keys to move your player. Press J to pass, K to shoot or slide-tackle, L for a chipped through-ball, and Space or Shift to sprint. Plug in any USB or Bluetooth gamepad for automatic controller play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play Super Liquid Soccer 27 unblocked at school?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Super Liquid Soccer 27 runs directly in your web browser with zero downloads, installs, or browser extensions. It works smoothly on school Chromebooks, laptops, and PCs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you score curling goals in Super Liquid Soccer 27?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sprint diagonally across the top of the penalty box, let go of sprint for a split second to steady your player, hold the shoot button for roughly 40% power, and immediately tap the directional key toward the far top corner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Super Liquid Soccer 27 support 2-player local multiplayer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Player 1 can use WASD + J/K/L on keyboard while Player 2 uses the Arrow Keys + NumPad (or plug in two controllers) for head-to-head matches."
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title="Super Liquid Soccer 27 | Play Free Unblocked Arcade Soccer Online"
+  description="Play Super Liquid Soccer 27 instantly in full screen! Free unblocked arcade soccer with fast matches, curving shots, updated 2027 national teams, and 2-player mode."
+  schema={{ ...faqSchema }}
+>
+  <div class="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+    
+    <!-- TOP INSTANT PLAY GAME VIEWPORT -->
+    <div id="game-arena" class="rounded-3xl bg-[#0a1d36] border border-[#4de3ff]/30 p-2 sm:p-3 shadow-2xl overflow-hidden">
+      <!-- Game Action Bar -->
+      <div class="bg-[#061325] px-4 py-3 rounded-2xl border border-white/10 flex flex-wrap items-center justify-between gap-3 mb-2">
+        <div class="flex items-center gap-2.5">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4de3ff] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-[#4de3ff]"></span>
+          </span>
+          <span class="text-white font-black text-sm tracking-wide">SUPER LIQUID SOCCER 27</span>
+          <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-[#ffd166]/15 border border-[#ffd166]/30 text-[#ffd166] text-[10px] font-mono font-bold uppercase">
+            Instant Play
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs font-mono">
+          <button
+            id="btn-fullscreen"
+            type="button"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#4de3ff] hover:bg-[#38bdf8] text-slate-950 font-bold transition-all shadow-md cursor-pointer"
+            title="Play in Fullscreen"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+            <span>FULLSCREEN</span>
+          </button>
+
+          <button
+            id="btn-reload"
+            type="button"
+            class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#061325] hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+            title="Restart Match"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <span>Restart</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Playable Game Frame -->
+      <div id="game-frame-wrapper" class="relative w-full aspect-[16/10] sm:aspect-[16/9] min-h-[520px] sm:min-h-[640px] rounded-2xl overflow-hidden bg-[#020611] border border-white/5">
+        <iframe
+          id="sls-game-iframe"
+          src="https://superliquidsoccer.games/game/index.html"
+          title="Super Liquid Soccer 27 Game Viewport"
+          class="w-full h-full border-0"
+          allow="fullscreen; autoplay; gamepad"
+          loading="eager"
+        ></iframe>
+      </div>
+
+      <!-- Quick Control Cheat Bar Under The Game -->
+      <div class="mt-3 grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-[#061325] border border-white/5">
+          <span class="text-[10px] font-mono text-[#8fa3c4] block uppercase">Move</span>
+          <span class="font-bold text-white font-mono text-sm">W A S D / Arrows</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#061325] border border-white/5">
+          <span class="text-[10px] font-mono text-[#8fa3c4] block uppercase">Short Pass / Switch</span>
+          <span class="font-bold text-[#4de3ff] font-mono text-sm">J / Z</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#061325] border border-white/5">
+          <span class="text-[10px] font-mono text-[#8fa3c4] block uppercase">Shoot / Slide Tackle</span>
+          <span class="font-bold text-[#ffd166] font-mono text-sm">K / X</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#061325] border border-white/5">
+          <span class="text-[10px] font-mono text-[#8fa3c4] block uppercase">Through-Ball / Chip</span>
+          <span class="font-bold text-white font-mono text-sm">L / C</span>
+        </div>
+        <div class="col-span-2 sm:col-span-1 p-2.5 rounded-xl bg-[#061325] border border-white/5">
+          <span class="text-[10px] font-mono text-[#8fa3c4] block uppercase">Sprint Boost</span>
+          <span class="font-bold text-emerald-400 font-mono text-sm">Space / Shift</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Companion Links -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="/controls/" class="p-4 rounded-2xl bg-[#0a1d36] hover:bg-[#0e2748] border border-white/10 hover:border-[#4de3ff]/40 transition space-y-1.5 group shadow-md">
+        <div class="flex items-center justify-between">
+          <span class="text-base font-bold text-white group-hover:text-[#4de3ff]">🎮 Controls & Gamepad</span>
+          <span class="text-xs text-[#4de3ff]">→</span>
+        </div>
+        <p class="text-xs text-[#8fa3c4]">Keyboard maps, 2-player local split, and Xbox/PS controller setup.</p>
+      </a>
+
+      <a href="/tactics-guide/" class="p-4 rounded-2xl bg-[#0a1d36] hover:bg-[#0e2748] border border-white/10 hover:border-[#ffd166]/40 transition space-y-1.5 group shadow-md">
+        <div class="flex items-center justify-between">
+          <span class="text-base font-bold text-white group-hover:text-[#ffd166]">⚽ How to Score Guide</span>
+          <span class="text-xs text-[#ffd166]">→</span>
+        </div>
+        <p class="text-xs text-[#8fa3c4]">Curving top-corner shots, bicycle kicks, and beating legendary AI keepers.</p>
+      </a>
+
+      <a href="/new-teams/" class="p-4 rounded-2xl bg-[#0a1d36] hover:bg-[#0e2748] border border-white/10 hover:border-[#4de3ff]/40 transition space-y-1.5 group shadow-md">
+        <div class="flex items-center justify-between">
+          <span class="text-base font-bold text-white group-hover:text-[#4de3ff]">🌍 24 Teams Tier List</span>
+          <span class="text-xs text-[#4de3ff]">→</span>
+        </div>
+        <p class="text-xs text-[#8fa3c4]">Best teams ranked by sprint speed, shot curl, and physical tackle power.</p>
+      </a>
+
+      <a href="/unblocked/" class="p-4 rounded-2xl bg-[#0a1d36] hover:bg-[#0e2748] border border-white/10 hover:border-[#ffd166]/40 transition space-y-1.5 group shadow-md">
+        <div class="flex items-center justify-between">
+          <span class="text-base font-bold text-white group-hover:text-[#ffd166]">🚀 Unblocked at School</span>
+          <span class="text-xs text-[#ffd166]">→</span>
+        </div>
+        <p class="text-xs text-[#8fa3c4]">Chromebook smooth play guide, lag fixes, and zero-download mirrors.</p>
+      </a>
+    </div>
+
+    <!-- Practical Winning Tactics & Scoring Cheatsheet -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0a1d36] border border-white/10 shadow-xl space-y-6">
+      <div class="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-mono text-[#ffd166] uppercase font-bold">Pro Gamer Cheatsheet</span>
+          <h2 class="text-xl sm:text-2xl font-black text-white mt-0.5">3 Scoring Tricks That Always Beat the AI</h2>
+        </div>
+        <span class="text-xs font-mono text-[#8fa3c4]">Works in All Modes</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-5 rounded-2xl bg-[#061325] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#4de3ff]/15 text-[#4de3ff] font-bold text-xs flex items-center justify-center font-mono">1</span>
+            <h3 class="font-bold text-white text-sm">The Diagonal Finesse Curl</h3>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Sprint diagonally toward the edge of the 18-yard box. Let go of the sprint key right before you shoot, charge K to about 40%, and aim toward the opposite far corner. The goalkeeper always dives late on dipping curls.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#061325] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-[#ffd166]/15 text-[#ffd166] font-bold text-xs flex items-center justify-center font-mono">2</span>
+            <h3 class="font-bold text-white text-sm">Low Cutback Across the Box</h3>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Take your fast winger down to the endline. Instead of floating a high cross that the keeper punches away, press J to hit a hard ground cross back toward the penalty spot for an easy one-touch tap-in.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#061325] border border-white/5 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-emerald-400/15 text-emerald-400 font-bold text-xs flex items-center justify-center font-mono">3</span>
+            <h3 class="font-bold text-white text-sm">Slide Tackle Without Fouls</h3>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Never slide directly from behind or you will get a red card. Always approach from the side, time your tackle just as the opposing attacker takes a heavy touch, and slide into the ball rather than the legs.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-5">
+      <div class="border-b border-white/10 pb-4">
+        <h3 class="text-xl font-bold text-white">Frequently Asked Questions</h3>
+        <p class="text-xs text-[#8fa3c4] mt-1">Quick answers to common questions about playing Super Liquid Soccer 27.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-2xl bg-[#061325] border border-white/5 space-y-1.5">
+          <h4 class="font-bold text-white text-sm">Why do players flop and tumble?</h4>
+          <p class="text-[#8fa3c4] leading-relaxed text-xs">
+            That's the signature comedy of the game! Player bodies react naturally to collisions, shoulder bumps, and slide tackles with floppy ragdoll inertia. Timing your runs prevents tumbling.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#061325] border border-white/5 space-y-1.5">
+          <h4 class="font-bold text-white text-sm">How do I play with a controller?</h4>
+          <p class="text-[#8fa3c4] leading-relaxed text-xs">
+            Connect any USB or Bluetooth gamepad (Xbox, PlayStation, Logitech) to your device. Press any button on the gamepad and the game will automatically switch to controller inputs.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#061325] border border-white/5 space-y-1.5">
+          <h4 class="font-bold text-white text-sm">Which team is the easiest to win with?</h4>
+          <p class="text-[#8fa3c4] leading-relaxed text-xs">
+            Brazil and France have the highest sprint speeds and curling accuracy, making them ideal for beginners. England and Germany have superior physical size for heading and defense.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#061325] border border-white/5 space-y-1.5">
+          <h4 class="font-bold text-white text-sm">Does the game save my tournament progress?</h4>
+          <p class="text-[#8fa3c4] leading-relaxed text-xs">
+            Yes. Your tournament brackets, unlocked squads, and match history are saved directly in your browser's local storage so you can resume your cup run at any time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    const fsBtn = document.getElementById('btn-fullscreen');
+    const reloadBtn = document.getElementById('btn-reload');
+    const iframe = document.getElementById('sls-game-iframe');
+    const wrapper = document.getElementById('game-frame-wrapper');
+
+    if (fsBtn && wrapper) {
+      fsBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          wrapper.requestFullscreen().catch(err => {
+            console.error('Fullscreen error:', err);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    }
+
+    if (reloadBtn && iframe) {
+      reloadBtn.addEventListener('click', () => {
+        const currentSrc = iframe.src;
+        iframe.src = '';
+        setTimeout(() => {
+          iframe.src = currentSrc;
+        }, 100);
+      });
+    }
+  </script>
+</Layout>

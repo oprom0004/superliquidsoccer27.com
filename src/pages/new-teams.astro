@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const teams = [
+  // Tier 1: Heavyweights
+  { name: "Brazil", tier: "Tier 1", att: 96, def: 82, spd: 94, wgt: 78, crv: 98, trait: "Samba Finesse: +25% curling shot trajectory", star: "Vitor Silva" },
+  { name: "France", tier: "Tier 1", att: 95, def: 88, spd: 97, wgt: 86, crv: 89, trait: "Supersonic Sprint: Highest breakaway top speed", star: "Kylian M." },
+  { name: "Argentina", tier: "Tier 1", att: 94, def: 84, spd: 91, wgt: 82, crv: 96, trait: "Low Gravity Balance: Immune to minor stumbles", star: "Leo M." },
+  { name: "England", tier: "Tier 1", att: 91, def: 90, spd: 89, wgt: 92, crv: 90, trait: "Aerial Dominance: +30% header power on corners", star: "Harry K." },
+  { name: "Spain", tier: "Tier 1", att: 89, def: 86, spd: 90, wgt: 76, crv: 94, trait: "Tiki-Taka Precision: Pass error probability < 2%", star: "Pedri G." },
+  { name: "Germany", tier: "Tier 1", att: 90, def: 91, spd: 87, wgt: 95, crv: 88, trait: "Physical Juggernaut: Hardest slide tackle resistance", star: "Jamal M." },
+
+  // Tier 2: Challengers
+  { name: "Japan", tier: "Tier 2", att: 86, def: 81, spd: 95, wgt: 74, crv: 91, trait: "High Pressing Stamina: Zero speed decay in second half", star: "Kaoru M." },
+  { name: "Portugal", tier: "Tier 2", att: 92, def: 83, spd: 89, wgt: 84, crv: 93, trait: "Knuckleball Specialist: Dipping long-range volleys", star: "Bruno F." },
+  { name: "Netherlands", tier: "Tier 2", att: 88, def: 89, spd: 88, wgt: 91, crv: 87, trait: "Total Football: Center-backs join box overloads", star: "Virgil v.D." },
+  { name: "Morocco", tier: "Tier 2", att: 84, def: 93, spd: 92, wgt: 85, crv: 84, trait: "Fortress Wall: Goalkeeper reach expanded by 15%", star: "Achraf H." },
+  { name: "Croatia", tier: "Tier 2", att: 85, def: 87, spd: 84, wgt: 86, crv: 95, trait: "Midfield Metronome: Extra recovery on failed passes", star: "Luka M." },
+  { name: "USA", tier: "Tier 2", att: 85, def: 82, spd: 93, wgt: 87, crv: 82, trait: "Fast Breakout: Counter-attack acceleration boost", star: "Christian P." },
+
+  // Tier 3: Underdogs
+  { name: "Senegal", tier: "Tier 3", att: 86, def: 84, spd: 94, wgt: 88, crv: 81, trait: "Flank Explosiveness: Wins 50/50 loose ball sprints", star: "Sadio M." },
+  { name: "South Korea", tier: "Tier 3", att: 87, def: 79, spd: 93, wgt: 80, crv: 89, trait: "Two-Footed Lethality: Zero weak-foot shot penalty", star: "Heung-min S." },
+  { name: "Colombia", tier: "Tier 3", att: 86, def: 80, spd: 89, wgt: 83, crv: 90, trait: "Acrobatic Instinct: Bicycle kick trigger zone doubled", star: "Luis D." },
+  { name: "Australia", tier: "Tier 3", att: 79, def: 85, spd: 82, wgt: 93, crv: 78, trait: "Rugby Tackle: Heavy slide tackles cause longer enemy daze", star: "Jackson I." },
+  { name: "Nigeria", tier: "Tier 3", att: 88, def: 77, spd: 96, wgt: 85, crv: 83, trait: "Super Eagle Pace: Fastest sprint transitions in Tier 3", star: "Victor O." },
+  { name: "Canada", tier: "Tier 3", att: 82, def: 80, spd: 95, wgt: 84, crv: 80, trait: "Wing Blitz: Full-backs overlap automatically", star: "Alphonso D." }
+];
+
+const breadcrumbs = [
+  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://superliquidsoccer27.com/" },
+  { "@type": "ListItem", "position": 2, "name": "New Teams", "item": "https://superliquidsoccer27.com/new-teams/" }
+];
+---
+
+<Layout
+  title="All 24 Teams, Ratings & Hidden Traits | Super Liquid Soccer 27"
+  description="Complete team roster database for Super Liquid Soccer 27. Compare attack, defense, sprint speed, shot curve, and special abilities across all 24 national squads."
+  canonical="/new-teams/"
+>
+  <div class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-6">
+      <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#4de3ff]">
+        <span>🌍 2027 ROSTER DATABASE</span>
+        <span>•</span>
+        <span>24 SQUADS INDEXED</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        Super Liquid Soccer 27 Teams, Stats & Hidden Traits
+      </h1>
+      <p class="text-xs sm:text-sm text-[#8fa3c4] leading-relaxed max-w-3xl">
+        Every national squad in the 2027 season has customized physics parameters. Beyond basic attack and defense numbers, team weight classes, sprint deceleration, and shot curvature traits fundamentally dictate how they handle on the pitch.
+      </p>
+    </div>
+
+    <!-- Filterable Team Roster Table -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-white">Full Team Statistics Matrix</h2>
+          <p class="text-xs text-[#8fa3c4] mt-1">Filter by tier or search by national team name.</p>
+        </div>
+        <div class="text-xs font-mono text-[#4de3ff]">
+          18 Benchmark Squads Displayed
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <input
+          id="team-search"
+          type="text"
+          placeholder="Search team or star player (e.g. Brazil, France, Messi, Mbappe)..."
+          class="bg-[#061325] border border-white/15 focus:border-[#4de3ff] rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none font-sans sm:w-80"
+        />
+
+        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+          <button type="button" class="tier-btn px-3 py-1.5 rounded-lg bg-[#4de3ff] text-slate-950 font-bold" data-tier="all">
+            All Squads
+          </button>
+          <button type="button" class="tier-btn px-3 py-1.5 rounded-lg bg-[#061325] text-slate-300 hover:text-white border border-white/10" data-tier="Tier 1">
+            Tier 1: Heavyweights
+          </button>
+          <button type="button" class="tier-btn px-3 py-1.5 rounded-lg bg-[#061325] text-slate-300 hover:text-white border border-white/10" data-tier="Tier 2">
+            Tier 2: Challengers
+          </button>
+          <button type="button" class="tier-btn px-3 py-1.5 rounded-lg bg-[#061325] text-slate-300 hover:text-white border border-white/10" data-tier="Tier 3">
+            Tier 3: Underdogs
+          </button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto rounded-2xl border border-white/10">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-white/10 bg-[#061325] text-[#8fa3c4] font-mono uppercase">
+              <th class="py-3 px-4">Nation</th>
+              <th class="py-3 px-4">Tier</th>
+              <th class="py-3 px-4 text-[#ffd166]">ATT</th>
+              <th class="py-3 px-4 text-[#4de3ff]">DEF</th>
+              <th class="py-3 px-4 text-emerald-400">SPD</th>
+              <th class="py-3 px-4 text-slate-300">WGT</th>
+              <th class="py-3 px-4 text-sky-400">CRV</th>
+              <th class="py-3 px-4">Signature Special Trait</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5 font-mono">
+            {teams.map(t => (
+              <tr class="hover:bg-white/5 team-row" data-tier={t.tier} data-name={t.name.toLowerCase()} data-star={t.star.toLowerCase()}>
+                <td class="py-3.5 px-4 font-bold text-white font-sans text-sm">
+                  <span>⚽ {t.name}</span>
+                  <span class="block text-[10px] text-[#8fa3c4] font-normal">{t.star}</span>
+                </td>
+                <td class="py-3.5 px-4">
+                  <span class={`inline-block px-2 py-0.5 rounded-full text-[10px] border ${
+                    t.tier === 'Tier 1' ? 'border-[#ffd166]/40 text-[#ffd166] bg-[#ffd166]/10' :
+                    t.tier === 'Tier 2' ? 'border-[#4de3ff]/40 text-[#4de3ff] bg-[#4de3ff]/10' :
+                    'border-slate-500/40 text-slate-300 bg-white/5'
+                  }`}>
+                    {t.tier}
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 font-bold text-[#ffd166]">{t.att}</td>
+                <td class="py-3.5 px-4 font-bold text-[#4de3ff]">{t.def}</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-400">{t.spd}</td>
+                <td class="py-3.5 px-4 text-slate-300">{t.wgt}</td>
+                <td class="py-3.5 px-4 font-bold text-sky-400">{t.crv}</td>
+                <td class="py-3.5 px-4 text-[#8fa3c4] font-sans text-[11px] leading-tight max-w-xs">{t.trait}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+      <a href="/" class="text-[#4de3ff] hover:underline flex items-center gap-1">
+        <span>← Back to Super Liquid Soccer 27 Arena</span>
+      </a>
+      <div class="flex items-center gap-4 text-[#8fa3c4]">
+        <a href="/controls/" class="hover:text-white">Key Controls ↗</a>
+        <a href="/tactics-guide/" class="hover:text-white">Pro Tactics ↗</a>
+        <a href="/unblocked/" class="hover:text-white">Unblocked Guide ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    const search = document.getElementById('team-search');
+    const rows = document.querySelectorAll('.team-row');
+    const btns = document.querySelectorAll('.tier-btn');
+    let activeTier = 'all';
+
+    function filterTeams() {
+      const q = search ? search.value.toLowerCase().trim() : '';
+      rows.forEach(r => {
+        const name = r.dataset.name || '';
+        const star = r.dataset.star || '';
+        const tier = r.dataset.tier || '';
+        const matchesQ = name.includes(q) || star.includes(q);
+        const matchesTier = activeTier === 'all' || tier === activeTier;
+        if (matchesQ && matchesTier) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    if (search) search.addEventListener('input', filterTeams);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => {
+          b.className = 'tier-btn px-3 py-1.5 rounded-lg bg-[#061325] text-slate-300 hover:text-white border border-white/10';
+        });
+        btn.className = 'tier-btn px-3 py-1.5 rounded-lg bg-[#4de3ff] text-slate-950 font-bold';
+        activeTier = btn.dataset.tier || 'all';
+        filterTeams();
+      });
+    });
+  </script>
+</Layout>

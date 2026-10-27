@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://superliquidsoccer27.com/" },
+  { "@type": "ListItem", "position": 2, "name": "Controls", "item": "https://superliquidsoccer27.com/controls/" }
+];
+---
+
+<Layout
+  title="Controls, Keybinds & Advanced Skill Moves | Super Liquid Soccer 27"
+  description="Master the complete controls for Super Liquid Soccer 27. Keyboard mapping, Xbox/PlayStation controller setup, and secret skill move combinations."
+  canonical="/controls/"
+>
+  <div class="py-8 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-6">
+      <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#ffd166]">
+        <span>🎮 INPUT SPECIFICATION</span>
+        <span>•</span>
+        <span>PRO CONTROLS GUIDE</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        Super Liquid Soccer 27 Controls & Skill Combos
+      </h1>
+      <p class="text-xs sm:text-sm text-[#8fa3c4] leading-relaxed max-w-3xl">
+        Every dribble, finesse curve, and sliding tackle in Super Liquid Soccer 27 is governed by responsive analog inputs. Test your keys live below and master the complete arcade playbook.
+      </p>
+    </div>
+
+    <!-- Live Interactive Key Tester Arena -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0a1d36] border border-[#4de3ff]/30 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <span class="text-xs font-mono text-[#ffd166] uppercase font-bold">Interactive Hardware Diagnostic</span>
+          <h2 class="text-lg sm:text-xl font-bold text-white">Live Keyboard & Input Tester</h2>
+        </div>
+        <span id="active-key-label" class="text-xs font-mono px-3 py-1 rounded-full bg-[#061325] border border-white/10 text-[#4de3ff]">
+          Press any key on your keyboard
+        </span>
+      </div>
+
+      <!-- Visual Virtual Keyboard Pads -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Movement D-Pad -->
+        <div class="p-5 rounded-2xl bg-[#061325] border border-white/10 space-y-3 text-center">
+          <span class="text-[11px] font-mono text-[#8fa3c4] uppercase">Movement Direction (WASD)</span>
+          <div class="flex flex-col items-center gap-2 pt-2">
+            <div id="key-w" class="w-12 h-12 rounded-xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-base shadow transition-all">W</div>
+            <div class="flex items-center gap-2">
+              <div id="key-a" class="w-12 h-12 rounded-xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-base shadow transition-all">A</div>
+              <div id="key-s" class="w-12 h-12 rounded-xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-base shadow transition-all">S</div>
+              <div id="key-d" class="w-12 h-12 rounded-xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-base shadow transition-all">D</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono text-[#8fa3c4] block">Also supports Arrow Keys</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="p-5 rounded-2xl bg-[#061325] border border-white/10 space-y-3 text-center">
+          <span class="text-[11px] font-mono text-[#8fa3c4] uppercase">Action Triggers (J / K / L)</span>
+          <div class="flex items-center justify-center gap-3 pt-5">
+            <div class="space-y-1">
+              <div id="key-j" class="w-14 h-14 rounded-2xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-lg shadow transition-all">J</div>
+              <span class="text-[10px] font-mono text-[#ffd166] block">Pass / Switch</span>
+            </div>
+            <div class="space-y-1">
+              <div id="key-k" class="w-14 h-14 rounded-2xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-lg shadow transition-all">K</div>
+              <span class="text-[10px] font-mono text-[#4de3ff] block">Shoot / Slide</span>
+            </div>
+            <div class="space-y-1">
+              <div id="key-l" class="w-14 h-14 rounded-2xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-lg shadow transition-all">L</div>
+              <span class="text-[10px] font-mono text-emerald-400 block">Through Ball</span>
+            </div>
+            <div class="space-y-1">
+              <div id="key-space" class="w-16 h-14 rounded-2xl bg-[#0a1d36] border border-white/20 flex items-center justify-center font-mono font-bold text-white text-sm shadow transition-all">SPACE</div>
+              <span class="text-[10px] font-mono text-amber-400 block">Sprint</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete Controls Table -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-6">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="text-xl font-bold text-white">Full Keyboard & Gamepad Mapping Table</h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-white/10">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-[#061325] text-[#8fa3c4] font-mono uppercase border-b border-white/10">
+              <th class="py-3 px-4">Action</th>
+              <th class="py-3 px-4">Keyboard Scheme 1 (Default)</th>
+              <th class="py-3 px-4">Keyboard Scheme 2 (Arrows)</th>
+              <th class="py-3 px-4">Gamepad (Xbox / DualShock)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5 font-mono">
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Move Player</td>
+              <td class="py-3 px-4 text-[#4de3ff]">W / A / S / D</td>
+              <td class="py-3 px-4 text-[#4de3ff]">Arrow Keys</td>
+              <td class="py-3 px-4 text-white">Left Analog Stick / D-Pad</td>
+            </tr>
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Short Ground Pass / Tackle</td>
+              <td class="py-3 px-4 text-[#ffd166]">J</td>
+              <td class="py-3 px-4 text-[#ffd166]">Z</td>
+              <td class="py-3 px-4 text-white">A Button (Cross)</td>
+            </tr>
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Shoot (Hold to Charge) / Slide Tackle</td>
+              <td class="py-3 px-4 text-rose-400">K</td>
+              <td class="py-3 px-4 text-rose-400">X</td>
+              <td class="py-3 px-4 text-white">B Button (Circle)</td>
+            </tr>
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Lobbed Through-Ball / Cross</td>
+              <td class="py-3 px-4 text-emerald-400">L</td>
+              <td class="py-3 px-4 text-emerald-400">C</td>
+              <td class="py-3 px-4 text-white">Y Button (Triangle)</td>
+            </tr>
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Sprint / Burst Acceleration</td>
+              <td class="py-3 px-4 text-amber-400">Spacebar</td>
+              <td class="py-3 px-4 text-amber-400">Right Shift</td>
+              <td class="py-3 px-4 text-white">Right Trigger (RT / R2)</td>
+            </tr>
+            <tr class="hover:bg-white/5">
+              <td class="py-3 px-4 font-bold text-white font-sans">Goalkeeper Rush (Out of Box)</td>
+              <td class="py-3 px-4 text-slate-300">Hold L while defending</td>
+              <td class="py-3 px-4 text-slate-300">Hold C while defending</td>
+              <td class="py-3 px-4 text-white">Hold Y Button (Triangle)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Advanced Skill Moves Combinations -->
+    <div class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">Pro Skill Moves & Secret Inputs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">The Curled Trivela (Outside-Foot)</h3>
+            <span class="text-xs font-mono text-[#ffd166] border border-[#ffd166]/30 px-2 py-0.5 rounded-full">Top Bins</span>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Charge shoot (K) to 70% power, then immediately flick the directional stick 45 degrees away from your player's running axis. The ball bends with intense counter-spin.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">The Bicycle Kick Screamer</h3>
+            <span class="text-xs font-mono text-[#4de3ff] border border-[#4de3ff]/30 px-2 py-0.5 rounded-full">Acrobatic</span>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            When an aerial cross floats in, release sprint (Space) and double-tap Shoot (K) while facing away from the goal. Your striker launches upside-down for a thunderous overhead volley.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">Clean Lateral Slide Tackle</h3>
+            <span class="text-xs font-mono text-emerald-400 border border-emerald-400/30 px-2 py-0.5 rounded-full">0% Card Risk</span>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Never slide from directly behind an attacker. Run alongside them on the flank, tap K while angling into the ball's rolling trajectory. You hook the ball away cleanly while the opponent flops over your body.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#0a1d36] border border-white/10 space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">Low-Driven Grass Cutter</h3>
+            <span class="text-xs font-mono text-sky-400 border border-sky-400/30 px-2 py-0.5 rounded-full">Bottom Corner</span>
+          </div>
+          <p class="text-xs text-[#8fa3c4] leading-relaxed">
+            Charge Shoot (K) to 90% power, and immediately tap Pass (J) before the foot contacts the ball. The ball stays glued to the turf, skimming beneath the diving keeper's hands.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+      <a href="/" class="text-[#4de3ff] hover:underline flex items-center gap-1">
+        <span>← Back to Super Liquid Soccer 27 Arena</span>
+      </a>
+      <div class="flex items-center gap-4 text-[#8fa3c4]">
+        <a href="/tactics-guide/" class="hover:text-white">Pro Tactics ↗</a>
+        <a href="/new-teams/" class="hover:text-white">Teams & Stats ↗</a>
+        <a href="/unblocked/" class="hover:text-white">Unblocked Guide ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    const activeLabel = document.getElementById('active-key-label');
+    const keyMap = {
+      'w': document.getElementById('key-w'),
+      'a': document.getElementById('key-a'),
+      's': document.getElementById('key-s'),
+      'd': document.getElementById('key-d'),
+      'arrowup': document.getElementById('key-w'),
+      'arrowleft': document.getElementById('key-a'),
+      'arrowdown': document.getElementById('key-s'),
+      'arrowright': document.getElementById('key-d'),
+      'j': document.getElementById('key-j'),
+      'k': document.getElementById('key-k'),
+      'l': document.getElementById('key-l'),
+      ' ': document.getElementById('key-space'),
+    };
+
+    window.addEventListener('keydown', (e) => {
+      const k = e.key.toLowerCase();
+      if (activeLabel) activeLabel.textContent = `Active Key: "${e.key.toUpperCase()}"`;
+      const el = keyMap[k];
+      if (el) {
+        el.classList.add('bg-[#4de3ff]', 'text-slate-950', 'border-[#4de3ff]', 'scale-110');
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      const k = e.key.toLowerCase();
+      const el = keyMap[k];
+      if (el) {
+        el.classList.remove('bg-[#4de3ff]', 'text-slate-950', 'border-[#4de3ff]', 'scale-110');
+      }
+    });
+  </script>
+</Layout>

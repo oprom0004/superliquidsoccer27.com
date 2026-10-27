@@ -1,0 +1,166 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  schema?: Record<string, any>;
+}
+
+const {
+  title = "Super Liquid Soccer 27 | Play 2027 Season Online & Unblocked",
+  description = "Play Super Liquid Soccer 27 (2027 Edition) online for free. Features updated 2027 team rosters, fluid arcade physics, unblocked gameplay, and advanced tactical controls.",
+  canonical = Astro.url.pathname,
+  schema
+} = Astro.props;
+
+const siteUrl = "https://superliquidsoccer27.com";
+const currentUrl = `${siteUrl}${canonical}`;
+const gscToken = "ThndlK26SxejvMM_atgKLuz2d8vMCpXFlmcOpIN5Zrk";
+const umamiId = "3dc2cc45-49d5-4eed-8357-b8a4c658964b";
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Super Liquid Soccer 27",
+      "description": "Play Super Liquid Soccer 27 online for free in your browser.",
+      "publisher": { "@type": "Organization", "name": "Super Liquid Soccer Guild", "url": siteUrl }
+    },
+    {
+      "@type": "VideoGame",
+      "@id": `${siteUrl}/#game`,
+      "name": "Super Liquid Soccer 27",
+      "url": siteUrl,
+      "description": "The fast-paced 7v7 arcade soccer game with ragdoll physics and 2027 season rosters.",
+      "genre": ["Sports", "Arcade", "Soccer"],
+      "gamePlatform": ["Web Browser", "Chromebook", "Desktop", "Mobile"]
+    }
+  ]
+};
+
+const finalSchema = schema || defaultSchema;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="google-site-verification" content={gscToken} />
+    <link rel="canonical" href={currentUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Super Liquid Soccer 27" />
+
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id={umamiId}></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+  </head>
+  <body class="bg-[#020611] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-[#4de3ff]/30 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#061325]/90 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-[#0a1d36] border border-[#4de3ff]/40 flex items-center justify-center text-[#4de3ff] font-mono font-bold text-base group-hover:border-[#4de3ff] transition-all">
+            ⚽
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-black tracking-tight text-white flex items-center gap-1.5">
+              <span>SUPER LIQUID</span>
+              <span class="text-[#4de3ff]">SOCCER 27</span>
+            </span>
+            <span class="text-[9px] font-mono text-[#ffd166] uppercase tracking-wider">2027 Season Edition</span>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
+          <a href="/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Play 27</a>
+          <a href="/new-teams/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">2027 Teams</a>
+          <a href="/tactics-guide/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Tactics Guide</a>
+          <a href="/controls/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Controls</a>
+          <a href="/unblocked/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Unblocked</a>
+          <a href="/patch-notes/" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">26 vs 27</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="https://superliquidsoccer.games"
+            target="_blank"
+            class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#0a1d36] border border-white/10 text-xs text-[#8fa3c4] hover:text-white transition-all font-mono"
+          >
+            <span>Main Games Hub</span>
+            <span class="text-[#ffd166]">↗</span>
+          </a>
+          <a
+            href="/"
+            class="px-4 py-2 rounded-xl bg-[#4de3ff] hover:bg-[#4de3ff]/90 text-slate-950 font-black text-xs transition-all shadow-md font-mono"
+          >
+            KICK OFF
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-[#061325] border-t border-white/10 py-10 px-4 sm:px-6 lg:px-8 mt-16 text-xs text-[#8fa3c4]">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-black">
+            <span>⚽</span>
+            <span>SuperLiquidSoccer27.com</span>
+          </div>
+          <p class="text-[11px] leading-relaxed">
+            The next-generation update portal for Super Liquid Soccer. Featuring updated 2027 rosters, enhanced fluid ball physics, and seamless unblocked web play.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-mono font-bold text-xs uppercase tracking-wider mb-3">Game Guides</h4>
+          <ul class="space-y-2 font-mono text-[11px]">
+            <li><a href="/" class="hover:text-[#4de3ff]">Play Soccer 27 Online</a></li>
+            <li><a href="/new-teams/" class="hover:text-[#4de3ff]">2027 Team Rosters</a></li>
+            <li><a href="/tactics-guide/" class="hover:text-[#4de3ff]">Curve & Bicycle Shot Guide</a></li>
+            <li><a href="/controls/" class="hover:text-[#4de3ff]">Gamepad & Keyboard Layout</a></li>
+            <li><a href="/unblocked/" class="hover:text-[#4de3ff]">Unblocked School Access</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-mono font-bold text-xs uppercase tracking-wider mb-3">Soccer Network</h4>
+          <ul class="space-y-2 font-mono text-[11px]">
+            <li><a href="https://superliquidsoccer.games" target="_blank" class="hover:text-[#4de3ff]">SuperLiquidSoccer.games (Hub)</a></li>
+            <li><a href="https://superliquidsoccer.games/unblocked" target="_blank" class="hover:text-[#4de3ff]">Soccer Games Unblocked</a></li>
+            <li><a href="/patch-notes/" class="hover:text-[#4de3ff]">2026 vs 2027 Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-mono font-bold text-xs uppercase tracking-wider mb-3">Play Anywhere</h4>
+          <p class="text-[11px] leading-relaxed mb-2">
+            Optimized for 60fps HTML5 canvas rendering on Chromebooks, MacBooks, and mobile touchscreens.
+          </p>
+          <span class="text-[10px] text-[#ffd166] font-mono">2027 Season Live Uplink</span>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto border-t border-white/5 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-[10px]">
+        <span>© 2026-2027 SuperLiquidSoccer27.com. All rights reserved.</span>
+        <span>Zero lag • HTML5 WebGL Acceleration</span>
+      </div>
+    </footer>
+  </body>
+</html>
